@@ -197,12 +197,10 @@ public class NetworkCommunicator: TransportHandler, MessageEncoder, MessageDecod
       }
 
       nearbyUsers.append(user)
-
-      self.sendEvent(withName: "detectedUser", body: user.getJSUser("new user"))
+      
+      if self.advertiseTimer != nil {
+        self.sendEvent(withName: "detectedUser", body: user.getJSUser("new user"))
+      }
     }
-  }
-  
-  override open func supportedEvents() -> [String]! {
-    return ["lostUser","detectedUser", "messageReceived", "connectedToUser", "receivedInvitation"]
   }
 }

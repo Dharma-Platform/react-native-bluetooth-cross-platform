@@ -1,7 +1,7 @@
 import Foundation
 import Underdark
 
-open class TransportHandler: RCTEventEmitter, UDTransportDelegate {
+open class TransportHandler: NSObject, UDTransportDelegate {
   
   // delimiterse
   private var type: User.PeerType = User.PeerType.OFFLINE
@@ -88,8 +88,8 @@ open class TransportHandler: RCTEventEmitter, UDTransportDelegate {
     // handle this in network communicatorwith proper encoder and decoder functionality
   }
   
-  override open func supportedEvents() -> [String]! {
-    return ["lostUser","detectedUser", "messageReceived", "connectedToUser", "receivedInvitation"]
+  public func sendEvent(withName: String, body: Any?) {
+    EventEmitter.sharedInstance.dispatch(name: withName, body: body)
   }
   
 }
