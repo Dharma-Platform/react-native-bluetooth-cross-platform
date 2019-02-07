@@ -86,4 +86,7 @@ public class NetworkManager: NetworkCommunicator, ReactNearby {
   @objc public  func sendMessage(_ message: String, userId:String) {
     self.sendMessage(message: message, userId: userId)
   }
+  @objc open static func requiresMainQueueSetup() -> Bool {
+    return false
+  }
 }

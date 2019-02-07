@@ -14,5 +14,9 @@
    @objc open override func supportedEvents() -> [String] {
      return EventEmitter.sharedInstance.allEvents
    }
+
+   @objc open override static func requiresMainQueueSetup() -> Bool {
+     return false
+   }
  
-  }
+}
