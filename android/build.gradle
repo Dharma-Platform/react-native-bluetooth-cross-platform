@@ -16,6 +16,6 @@ android {
 }
 
 dependencies {
-    compile "com.facebook.react:react-native:+"
-    compile 'io.underdark:underdark:1.+'
+    implementation "com.facebook.react:react-native:+"
+    implementation 'io.underdark:underdark:1.+'
 }
